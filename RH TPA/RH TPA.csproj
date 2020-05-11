@@ -1,0 +1,644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D4E64E6-560D-4FBE-A5DF-7F9E5498259A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RH_TPA</RootNamespace>
+    <AssemblyName>RH TPA</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zen.Barcode.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zen.Barcode.Rendering.Framework.3.1.10729.1\lib\Zen.Barcode.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountingAndFinance\AccountingAndFinanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountingAndFinance\AccountingAndFinanceForm.Designer.cs">
+      <DependentUpon>AccountingAndFinanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountingAndFinance\AccountingReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountingAndFinance\AccountingReportForm.Designer.cs">
+      <DependentUpon>AccountingReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountingAndFinance\FundRequestController.cs" />
+    <Compile Include="AccountingAndFinance\FundRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountingAndFinance\FundRequestForm.Designer.cs">
+      <DependentUpon>FundRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrunchTicket.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Candidate.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiningRoom\CheckTicketController.cs" />
+    <Compile Include="DiningRoom\CheckTicketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiningRoom\CheckTicketForm.Designer.cs">
+      <DependentUpon>CheckTicketForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiningRoom\DiningRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiningRoom\DiningRoomForm.Designer.cs">
+      <DependentUpon>DiningRoomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiningRoom\DishesRequestController.cs" />
+    <Compile Include="DiningRoom\RequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiningRoom\RequestForm.Designer.cs">
+      <DependentUpon>RequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dishes.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DishesRequest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Evidence.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Food.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FundRequest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Guest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuestReviewReport.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelManager\EvidenceController.cs" />
+    <Compile Include="HotelManager\EvidenceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotelManager\EvidenceForm.Designer.cs">
+      <DependentUpon>EvidenceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HotelManager\HotelManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotelManager\HotelManagerForm.Designer.cs">
+      <DependentUpon>HotelManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HotelManager\ResignationController.cs" />
+    <Compile Include="HotelManager\ResignationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotelManager\ResignationForm.Designer.cs">
+      <DependentUpon>ResignationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HouseKeeping\HouseKeepingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HouseKeeping\HouseKeepingForm.Designer.cs">
+      <DependentUpon>HouseKeepingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HouseKeeping\MinibarController.cs" />
+    <Compile Include="HouseKeeping\MinibarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HouseKeeping\MinibarForm.Designer.cs">
+      <DependentUpon>MinibarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HouseKeeping\PurchaseRequestController.cs" />
+    <Compile Include="HouseKeeping\PurchaseRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HouseKeeping\PurchaseRequestForm.Designer.cs">
+      <DependentUpon>PurchaseRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HouseKeeping\RoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HouseKeeping\RoomForm.Designer.cs">
+      <DependentUpon>RoomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HumanCapital\EmployeeController.cs" />
+    <Compile Include="HumanCapital\EmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HumanCapital\EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HumanCapital\EvidenceController.cs" />
+    <Compile Include="HumanCapital\EvidenceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HumanCapital\EvidenceForm.Designer.cs">
+      <DependentUpon>EvidenceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HumanCapital\FundRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HumanCapital\FundRequestForm.Designer.cs">
+      <DependentUpon>FundRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HumanCapital\HireController.cs" />
+    <Compile Include="HumanCapital\HireForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HumanCapital\HireForm.Designer.cs">
+      <DependentUpon>HireForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HumanCapital\HumanCapitalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HumanCapital\HumanCapitalForm.Designer.cs">
+      <DependentUpon>HumanCapitalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HumanCapital\SalaryController.cs" />
+    <Compile Include="HumanCapital\SalaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HumanCapital\SalaryForm.Designer.cs">
+      <DependentUpon>SalaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingredient.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen\CookRequestController.cs" />
+    <Compile Include="Kitchen\CookRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\CookRequestForm.Designer.cs">
+      <DependentUpon>CookRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen\IngredientController.cs" />
+    <Compile Include="Kitchen\IngredientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\IngredientForm.Designer.cs">
+      <DependentUpon>IngredientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen\KitchenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\KitchenForm.Designer.cs">
+      <DependentUpon>KitchenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen\PurchaseRequestController.cs" />
+    <Compile Include="Kitchen\PurchaseRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\PurchaseRequestForm.Designer.cs">
+      <DependentUpon>PurchaseRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen\RecipeController.cs" />
+    <Compile Include="Kitchen\RecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\RecipeForm.Designer.cs">
+      <DependentUpon>RecipeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MinibarItems.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderHeader.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentDetail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseReport.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseRequest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseRequestReason.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Purchasing\FundRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchasing\FundRequestForm.Designer.cs">
+      <DependentUpon>FundRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purchasing\PurchaseReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchasing\PurchaseReportForm.Designer.cs">
+      <DependentUpon>PurchaseReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purchasing\PurchaseRequestController.cs" />
+    <Compile Include="Purchasing\PurchaseRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchasing\PurchaseRequestForm.Designer.cs">
+      <DependentUpon>PurchaseRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purchasing\PurchasingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchasing\PurchasingForm.Designer.cs">
+      <DependentUpon>PurchasingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaiseRequest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\GuestController.cs" />
+    <Compile Include="Receptionist\GuestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\GuestForm.Designer.cs">
+      <DependentUpon>GuestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\GuestReviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\GuestReviewForm.Designer.cs">
+      <DependentUpon>GuestReviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\PaymentController.cs" />
+    <Compile Include="Receptionist\QRCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\QRCodeForm.Designer.cs">
+      <DependentUpon>QRCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\ReceptionistForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\ReceptionistForm.Designer.cs">
+      <DependentUpon>ReceptionistForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receptionist\ReservationController.cs" />
+    <Compile Include="Receptionist\ReservationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\ReservationForm.Designer.cs">
+      <DependentUpon>ReservationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receptionist\SalesReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receptionist\SalesReportForm.Designer.cs">
+      <DependentUpon>SalesReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeDish.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeFood.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resignation.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Room.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoomService\OrderController.cs" />
+    <Compile Include="RoomService\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomService\OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomService\RoomServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomService\RoomServiceForm.Designer.cs">
+      <DependentUpon>RoomServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesAndMarketing\GuestReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesAndMarketing\GuestReportForm.Designer.cs">
+      <DependentUpon>GuestReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesAndMarketing\SalesAndMarketingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesAndMarketing\SalesAndMarketingForm.Designer.cs">
+      <DependentUpon>SalesAndMarketingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesAndMarketing\SendRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesAndMarketing\SendRequestForm.Designer.cs">
+      <DependentUpon>SendRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesReport.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AccountingAndFinance\AccountingAndFinanceForm.resx">
+      <DependentUpon>AccountingAndFinanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountingAndFinance\AccountingReportForm.resx">
+      <DependentUpon>AccountingReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountingAndFinance\FundRequestForm.resx">
+      <DependentUpon>FundRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiningRoom\CheckTicketForm.resx">
+      <DependentUpon>CheckTicketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiningRoom\DiningRoomForm.resx">
+      <DependentUpon>DiningRoomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiningRoom\RequestForm.resx">
+      <DependentUpon>RequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HotelManager\EvidenceForm.resx">
+      <DependentUpon>EvidenceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HotelManager\HotelManagerForm.resx">
+      <DependentUpon>HotelManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HotelManager\ResignationForm.resx">
+      <DependentUpon>ResignationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HouseKeeping\HouseKeepingForm.resx">
+      <DependentUpon>HouseKeepingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HouseKeeping\MinibarForm.resx">
+      <DependentUpon>MinibarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HouseKeeping\PurchaseRequestForm.resx">
+      <DependentUpon>PurchaseRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HouseKeeping\RoomForm.resx">
+      <DependentUpon>RoomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HumanCapital\EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HumanCapital\EvidenceForm.resx">
+      <DependentUpon>EvidenceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HumanCapital\FundRequestForm.resx">
+      <DependentUpon>FundRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HumanCapital\HireForm.resx">
+      <DependentUpon>HireForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HumanCapital\HumanCapitalForm.resx">
+      <DependentUpon>HumanCapitalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HumanCapital\SalaryForm.resx">
+      <DependentUpon>SalaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\CookRequestForm.resx">
+      <DependentUpon>CookRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\IngredientForm.resx">
+      <DependentUpon>IngredientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\KitchenForm.resx">
+      <DependentUpon>KitchenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\PurchaseRequestForm.resx">
+      <DependentUpon>PurchaseRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen\RecipeForm.resx">
+      <DependentUpon>RecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchasing\FundRequestForm.resx">
+      <DependentUpon>FundRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchasing\PurchaseReportForm.resx">
+      <DependentUpon>PurchaseReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchasing\PurchaseRequestForm.resx">
+      <DependentUpon>PurchaseRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchasing\PurchasingForm.resx">
+      <DependentUpon>PurchasingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receptionist\GuestForm.resx">
+      <DependentUpon>GuestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receptionist\GuestReviewForm.resx">
+      <DependentUpon>GuestReviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receptionist\QRCodeForm.resx">
+      <DependentUpon>QRCodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receptionist\ReceptionistForm.resx">
+      <DependentUpon>ReceptionistForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Receptionist\ReservationForm.resx">
+      <DependentUpon>ReservationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receptionist\SalesReportForm.resx">
+      <DependentUpon>SalesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomService\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomService\RoomServiceForm.resx">
+      <DependentUpon>RoomServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesAndMarketing\GuestReportForm.resx">
+      <DependentUpon>GuestReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesAndMarketing\SalesAndMarketingForm.resx">
+      <DependentUpon>SalesAndMarketingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesAndMarketing\SendRequestForm.resx">
+      <DependentUpon>SendRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\Patrick Hotel Database.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\Patrick Hotel Database_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Patrick Hotel Database.mdf</DependentUpon>
+    </Content>
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

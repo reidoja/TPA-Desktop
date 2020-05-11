@@ -1,0 +1,58 @@
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH TPA.csprojAssemblyReference.cache
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.LoginForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Properties.Resources.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH TPA.csproj.GenerateResource.cache
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH TPA.csproj.CoreCompileInputs.cache
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\bin\Debug\Database\Patrick Hotel Database.mdf
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\bin\Debug\Database\Patrick Hotel Database_log.ldf
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\bin\Debug\RH TPA.exe.config
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\bin\Debug\RH TPA.exe
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\bin\Debug\RH TPA.pdb
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\bin\Debug\EntityFramework.dll
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\bin\Debug\EntityFramework.SqlServer.dll
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\bin\Debug\EntityFramework.xml
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\bin\Debug\EntityFramework.SqlServer.xml
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH TPA.csproj.CopyComplete
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH TPA.exe
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH TPA.pdb
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Forms.ReceptionistForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Receptionist.ReservationForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Receptionist.GuestForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.DiningRoom.DiningRoomForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HouseKeeping.HouseKeepingForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HouseKeeping.MinibarForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.DiningRoom.CheckTicketForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.DiningRoom.RequestForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HouseKeeping.RoomForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.RoomService.OrderForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.RoomService.RoomServiceForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HouseKeeping.PurchaseRequestForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Kitchen.CookRequestForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Kitchen.IngredientForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Kitchen.KitchenForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Kitchen.PurchaseRequestForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Kitchen.RecipeForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Purchasing.PurchaseRequestForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Purchasing.PurchasingForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\bin\Debug\Zen.Barcode.Core.dll
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Receptionist.QRCodeForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Purchasing.FundRequestForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.AccountingAndFinance.AccountingAndFinanceForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.AccountingAndFinance.FundRequestForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HumanCapital.EmployeeForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HumanCapital.EvidenceForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HumanCapital.FundRequestForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HumanCapital.HireForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HumanCapital.HumanCapitalForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HumanCapital.SalaryForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.SalesAndMarketing.SalesAndMarketingForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.SalesAndMarketing.SendRequestForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HotelManager.EvidenceForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HotelManager.HotelManagerForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.HotelManager.ResignationForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH TPA.csproj.ResolveComReference.cache
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Receptionist.SalesReportForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.AccountingAndFinance.AccountingReportForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Purchasing.PurchaseReportForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.Receptionist.GuestReviewForm.resources
+Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\Desktop\RH TPA\RH TPA\obj\Debug\RH_TPA.SalesAndMarketing.GuestReportForm.resources

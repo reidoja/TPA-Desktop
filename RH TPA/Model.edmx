@@ -1,0 +1,1389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BrunchTicket">
+          <Key>
+            <PropertyRef Name="TicketId" />
+          </Key>
+          <Property Name="TicketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GuestId" Type="int" Nullable="false" />
+          <Property Name="BrunchRemaining" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Candidate">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+          </Key>
+          <Property Name="CandidateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CandidateName" Type="varchar(max)" Nullable="false" />
+          <Property Name="CandidateStep" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="DishId" />
+          </Key>
+          <Property Name="DishId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DishName" Type="varchar(max)" Nullable="false" />
+          <Property Name="DishStock" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DishesRequest">
+          <Key>
+            <PropertyRef Name="RequestId" />
+          </Key>
+          <Property Name="RequestId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DishId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evidence">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+          <Property Name="EvidenceText" Type="varchar(max)" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="FoodId" />
+          </Key>
+          <Property Name="FoodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodName" Type="varchar(max)" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+          <Property Name="FoodPrice" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FundRequest">
+          <Key>
+            <PropertyRef Name="FundId" />
+          </Key>
+          <Property Name="FundId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="varchar(max)" Nullable="false" />
+          <Property Name="Total" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Guest">
+          <Key>
+            <PropertyRef Name="GuestId" />
+          </Key>
+          <Property Name="GuestId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GuestName" Type="varchar(max)" Nullable="false" />
+          <Property Name="DocumentId" Type="varchar(max)" Nullable="false" />
+          <Property Name="RoomId" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+          <Property Name="ReservationId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GuestReviewReport">
+          <Key>
+            <PropertyRef Name="GuestReviewId" />
+          </Key>
+          <Property Name="GuestReviewId" Type="int" Nullable="false" />
+          <Property Name="GuestId" Type="int" Nullable="false" />
+          <Property Name="GuestReview" Type="varchar(max)" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="IngredientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IngredientName" Type="varchar(max)" Nullable="false" />
+          <Property Name="IngredientStock" Type="int" Nullable="false" />
+          <Property Name="IngredientMinimumStock" Type="int" Nullable="false" />
+          <Property Name="IngredientPrice" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MinibarItems">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="varchar(max)" Nullable="false" />
+          <Property Name="ItemStock" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+          <Property Name="ItemMinimumStock" Type="int" Nullable="false" />
+          <Property Name="ItemPrice" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="FoodId" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="FoodId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderHeader">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderPriority" Type="int" Nullable="false" />
+          <Property Name="RoomNumber" Type="varchar(max)" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentDetail">
+          <Key>
+            <PropertyRef Name="PaymentId" />
+          </Key>
+          <Property Name="PaymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GuestId" Type="int" Nullable="false" />
+          <Property Name="PaymentTotal" Type="int" Nullable="false" />
+          <Property Name="DepositMoney" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchaseReport">
+          <Key>
+            <PropertyRef Name="PusrchaseReportId" />
+          </Key>
+          <Property Name="PusrchaseReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseItem" Type="varchar(max)" Nullable="false" />
+          <Property Name="PurchaseTotal" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchaseRequest">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="varchar(max)" Nullable="false" />
+          <Property Name="ItemPrice" Type="int" Nullable="false" />
+          <Property Name="ItemQuantity" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PurchaseRequestReason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="Reason" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RaiseRequest">
+          <Key>
+            <PropertyRef Name="RaiseId" />
+          </Key>
+          <Property Name="RaiseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+          <Property Name="RaiseTotal" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\DESKTOP\RH TPA\RH TPA\DATABASE\PATRICK HOTEL DATABASE.MDF.dbo.RecipeDish' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RecipeDish">
+          <Key>
+            <PropertyRef Name="DishId" />
+            <PropertyRef Name="IngredientId" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Deleted" />
+          </Key>
+          <Property Name="DishId" Type="int" Nullable="false" />
+          <Property Name="IngredientId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Z:\!KULIAH\ASLAB\KERJA\TPA\DESKTOP\DESKTOP\RH TPA\RH TPA\DATABASE\PATRICK HOTEL DATABASE.MDF.dbo.RecipeFood' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RecipeFood">
+          <Key>
+            <PropertyRef Name="FoodId" />
+            <PropertyRef Name="IngredientId" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Deleted" />
+          </Key>
+          <Property Name="FoodId" Type="int" Nullable="false" />
+          <Property Name="IngredientId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationId" />
+          </Key>
+          <Property Name="ReservationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CheckInDate" Type="varchar(max)" Nullable="false" />
+          <Property Name="Nights" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+          <Property Name="GuestName" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resignation">
+          <Key>
+            <PropertyRef Name="RegignationId" />
+          </Key>
+          <Property Name="RegignationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoomNumber" Type="varchar(max)" Nullable="false" />
+          <Property Name="Available" Type="int" Nullable="false" />
+          <Property Name="MakeUp" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesReport">
+          <Key>
+            <PropertyRef Name="SalesReportId" />
+          </Key>
+          <Property Name="SalesReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TotalPayment" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffName" Type="varchar(max)" Nullable="false" />
+          <Property Name="StaffPassword" Type="varchar(max)" Nullable="false" />
+          <Property Name="StaffSalary" Type="int" Nullable="false" />
+          <Property Name="StaffPosition" Type="varchar(max)" Nullable="false" />
+          <Property Name="Deleted" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__BrunchTic__Guest__536D5C82">
+          <End Role="Guest" Type="Self.Guest" Multiplicity="1" />
+          <End Role="BrunchTicket" Type="Self.BrunchTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Guest">
+              <PropertyRef Name="GuestId" />
+            </Principal>
+            <Dependent Role="BrunchTicket">
+              <PropertyRef Name="GuestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DishesReq__DishI__3C34F16F">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="DishesRequest" Type="Self.DishesRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="DishId" />
+            </Principal>
+            <Dependent Role="DishesRequest">
+              <PropertyRef Name="DishId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Evidence__StaffI__3F3159AB">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="Evidence" Type="Self.Evidence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="Evidence">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Guest__Reservati__546180BB">
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservation">
+              <PropertyRef Name="ReservationId" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="ReservationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Guest__RoomId__5555A4F4">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GuestRevi__Guest__7A521F79">
+          <End Role="Guest" Type="Self.Guest" Multiplicity="1" />
+          <End Role="GuestReviewReport" Type="Self.GuestReviewReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Guest">
+              <PropertyRef Name="GuestId" />
+            </Principal>
+            <Dependent Role="GuestReviewReport">
+              <PropertyRef Name="GuestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__FoodI__2DB1C7EE">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="FoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__Order__75C27486">
+          <End Role="OrderHeader" Type="Self.OrderHeader" Multiplicity="1" />
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderHeader">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PaymentDe__Guest__216BEC9A">
+          <End Role="Guest" Type="Self.Guest" Multiplicity="1" />
+          <End Role="PaymentDetail" Type="Self.PaymentDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Guest">
+              <PropertyRef Name="GuestId" />
+            </Principal>
+            <Dependent Role="PaymentDetail">
+              <PropertyRef Name="GuestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PurchaseR__ItemI__190BB0C3">
+          <End Role="PurchaseRequest" Type="Self.PurchaseRequest" Multiplicity="1" />
+          <End Role="PurchaseRequestReason" Type="Self.PurchaseRequestReason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseRequest">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="PurchaseRequestReason">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RaiseRequ__Staff__2C1E8537">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="RaiseRequest" Type="Self.RaiseRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="RaiseRequest">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RecipeDis__DishI__0FEC5ADD">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="RecipeDish" Type="Self.RecipeDish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="DishId" />
+            </Principal>
+            <Dependent Role="RecipeDish">
+              <PropertyRef Name="DishId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RecipeDis__Ingre__10E07F16">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+          <End Role="RecipeDish" Type="Self.RecipeDish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="RecipeDish">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RecipeFoo__FoodI__0D0FEE32">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="RecipeFood" Type="Self.RecipeFood" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodId" />
+            </Principal>
+            <Dependent Role="RecipeFood">
+              <PropertyRef Name="FoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RecipeFoo__Ingre__0E04126B">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+          <End Role="RecipeFood" Type="Self.RecipeFood" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="RecipeFood">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Resignati__Staff__65570293">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="Resignation" Type="Self.Resignation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="Resignation">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="BrunchTicket" EntityType="Self.BrunchTicket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Candidate" EntityType="Self.Candidate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DishesRequest" EntityType="Self.DishesRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evidence" EntityType="Self.Evidence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FundRequest" EntityType="Self.FundRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Guest" EntityType="Self.Guest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GuestReviewReport" EntityType="Self.GuestReviewReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MinibarItems" EntityType="Self.MinibarItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderHeader" EntityType="Self.OrderHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentDetail" EntityType="Self.PaymentDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseReport" EntityType="Self.PurchaseReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseRequest" EntityType="Self.PurchaseRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseRequestReason" EntityType="Self.PurchaseRequestReason" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RaiseRequest" EntityType="Self.RaiseRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resignation" EntityType="Self.Resignation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesReport" EntityType="Self.SalesReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecipeDish" EntityType="Self.RecipeDish" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RecipeDish].[DishId] AS [DishId], 
+    [RecipeDish].[IngredientId] AS [IngredientId], 
+    [RecipeDish].[Quantity] AS [Quantity], 
+    [RecipeDish].[Deleted] AS [Deleted]
+    FROM [dbo].[RecipeDish] AS [RecipeDish]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RecipeFood" EntityType="Self.RecipeFood" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RecipeFood].[FoodId] AS [FoodId], 
+    [RecipeFood].[IngredientId] AS [IngredientId], 
+    [RecipeFood].[Quantity] AS [Quantity], 
+    [RecipeFood].[Deleted] AS [Deleted]
+    FROM [dbo].[RecipeFood] AS [RecipeFood]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__BrunchTic__Guest__536D5C82" Association="Self.FK__BrunchTic__Guest__536D5C82">
+            <End Role="Guest" EntitySet="Guest" />
+            <End Role="BrunchTicket" EntitySet="BrunchTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DishesReq__DishI__3C34F16F" Association="Self.FK__DishesReq__DishI__3C34F16F">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="DishesRequest" EntitySet="DishesRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Evidence__StaffI__3F3159AB" Association="Self.FK__Evidence__StaffI__3F3159AB">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Evidence" EntitySet="Evidence" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Guest__Reservati__546180BB" Association="Self.FK__Guest__Reservati__546180BB">
+            <End Role="Reservation" EntitySet="Reservation" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Guest__RoomId__5555A4F4" Association="Self.FK__Guest__RoomId__5555A4F4">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GuestRevi__Guest__7A521F79" Association="Self.FK__GuestRevi__Guest__7A521F79">
+            <End Role="Guest" EntitySet="Guest" />
+            <End Role="GuestReviewReport" EntitySet="GuestReviewReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__FoodI__2DB1C7EE" Association="Self.FK__OrderDeta__FoodI__2DB1C7EE">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Order__75C27486" Association="Self.FK__OrderDeta__Order__75C27486">
+            <End Role="OrderHeader" EntitySet="OrderHeader" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PaymentDe__Guest__216BEC9A" Association="Self.FK__PaymentDe__Guest__216BEC9A">
+            <End Role="Guest" EntitySet="Guest" />
+            <End Role="PaymentDetail" EntitySet="PaymentDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PurchaseR__ItemI__190BB0C3" Association="Self.FK__PurchaseR__ItemI__190BB0C3">
+            <End Role="PurchaseRequest" EntitySet="PurchaseRequest" />
+            <End Role="PurchaseRequestReason" EntitySet="PurchaseRequestReason" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RaiseRequ__Staff__2C1E8537" Association="Self.FK__RaiseRequ__Staff__2C1E8537">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="RaiseRequest" EntitySet="RaiseRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RecipeDis__DishI__0FEC5ADD" Association="Self.FK__RecipeDis__DishI__0FEC5ADD">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="RecipeDish" EntitySet="RecipeDish" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RecipeDis__Ingre__10E07F16" Association="Self.FK__RecipeDis__Ingre__10E07F16">
+            <End Role="Ingredient" EntitySet="Ingredient" />
+            <End Role="RecipeDish" EntitySet="RecipeDish" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RecipeFoo__FoodI__0D0FEE32" Association="Self.FK__RecipeFoo__FoodI__0D0FEE32">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="RecipeFood" EntitySet="RecipeFood" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RecipeFoo__Ingre__0E04126B" Association="Self.FK__RecipeFoo__Ingre__0E04126B">
+            <End Role="Ingredient" EntitySet="Ingredient" />
+            <End Role="RecipeFood" EntitySet="RecipeFood" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Resignati__Staff__65570293" Association="Self.FK__Resignati__Staff__65570293">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Resignation" EntitySet="Resignation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BrunchTicket">
+          <Key>
+            <PropertyRef Name="TicketId" />
+          </Key>
+          <Property Name="TicketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GuestId" Type="Int32" Nullable="false" />
+          <Property Name="BrunchRemaining" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK__BrunchTic__Guest__24E777C3" FromRole="BrunchTicket" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="DishId" />
+          </Key>
+          <Property Name="DishId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DishStock" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DishesRequest" Relationship="Self.FK__DishesReq__DishI__3C34F16F" FromRole="Dishes" ToRole="DishesRequest" />
+          <NavigationProperty Name="RecipeDish" Relationship="Self.FK__RecipeDis__DishI__0FEC5ADD" FromRole="Dishes" ToRole="RecipeDish" />
+        </EntityType>
+        <EntityType Name="DishesRequest">
+          <Key>
+            <PropertyRef Name="RequestId" />
+          </Key>
+          <Property Name="RequestId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DishId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK__DishesReq__DishI__3C34F16F" FromRole="DishesRequest" ToRole="Dishes" />
+        </EntityType>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="FoodId" />
+          </Key>
+          <Property Name="FoodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="FoodPrice" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OrderDetail" Relationship="Self.FK__OrderDeta__FoodI__2DB1C7EE" FromRole="Food" ToRole="OrderDetail" />
+          <NavigationProperty Name="RecipeFood" Relationship="Self.FK__RecipeFoo__FoodI__0D0FEE32" FromRole="Food" ToRole="RecipeFood" />
+        </EntityType>
+        <EntityType Name="FundRequest">
+          <Key>
+            <PropertyRef Name="FundId" />
+          </Key>
+          <Property Name="FundId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Total" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Guest">
+          <Key>
+            <PropertyRef Name="GuestId" />
+          </Key>
+          <Property Name="GuestId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GuestName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DocumentId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="ReservationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BrunchTicket" Relationship="Self.FK__BrunchTic__Guest__24E777C3" FromRole="Guest" ToRole="BrunchTicket" />
+          <NavigationProperty Name="Reservation" Relationship="Self.FK__Guest__Reservati__23F3538A" FromRole="Guest" ToRole="Reservation" />
+          <NavigationProperty Name="Room" Relationship="Self.FK__Guest__RoomId__25DB9BFC" FromRole="Guest" ToRole="Room" />
+          <NavigationProperty Name="PaymentDetail" Relationship="Model.FK__PaymentDe__Guest__269AB60B" FromRole="Guest" ToRole="PaymentDetail" />
+          <NavigationProperty Name="GuestReviewReport" Relationship="Model.FK__GuestRevi__Guest__7A521F79" FromRole="Guest" ToRole="GuestReviewReport" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="IngredientId" />
+          </Key>
+          <Property Name="IngredientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IngredientName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IngredientStock" Type="Int32" Nullable="false" />
+          <Property Name="IngredientMinimumStock" Type="Int32" Nullable="false" />
+          <Property Name="IngredientPrice" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RecipeDish" Relationship="Self.FK__RecipeDis__Ingre__10E07F16" FromRole="Ingredient" ToRole="RecipeDish" />
+          <NavigationProperty Name="RecipeFood" Relationship="Self.FK__RecipeFoo__Ingre__0E04126B" FromRole="Ingredient" ToRole="RecipeFood" />
+        </EntityType>
+        <EntityType Name="MinibarItems">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemStock" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="ItemMinimumStock" Type="Int32" Nullable="false" />
+          <Property Name="ItemPrice" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderHeader">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderPriority" Type="Int32" Nullable="false" />
+          <Property Name="RoomNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OrderDetail" Relationship="Self.FK__OrderDeta__Order__54CB950F" FromRole="OrderHeader" ToRole="OrderDetail" />
+        </EntityType>
+        <EntityType Name="PaymentDetail">
+          <Key>
+            <PropertyRef Name="PaymentId" />
+          </Key>
+          <Property Name="PaymentId" Type="Int32" Nullable="false" />
+          <Property Name="PaymentTotal" Type="Int32" Nullable="false" />
+          <Property Name="DepositMoney" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="GuestId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Guest" Relationship="Model.FK__PaymentDe__Guest__269AB60B" FromRole="PaymentDetail" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="PurchaseRequest">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="ItemPrice" Type="Int32" Nullable="false" />
+          <Property Name="ItemQuantity" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PurchaseRequestReason" Relationship="Self.FK__PurchaseR__ItemI__473C8FC7" FromRole="PurchaseRequest" ToRole="PurchaseRequestReason" />
+          <Property Name="ItemName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PurchaseRequestReason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PurchaseRequest" Relationship="Self.FK__PurchaseR__ItemI__473C8FC7" FromRole="PurchaseRequestReason" ToRole="PurchaseRequest" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationId" />
+          </Key>
+          <Property Name="ReservationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CheckInDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nights" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="GuestName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK__Guest__Reservati__23F3538A" FromRole="Reservation" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoomNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Available" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Guest" Relationship="Self.FK__Guest__RoomId__25DB9BFC" FromRole="Room" ToRole="Guest" />
+          <Property Name="MakeUp" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StaffPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StaffSalary" Type="Int32" Nullable="false" />
+          <Property Name="StaffPosition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RaiseRequest" Relationship="Model.FK__RaiseRequ__Staff__2C1E8537" FromRole="Staff" ToRole="RaiseRequest" />
+          <NavigationProperty Name="Evidence" Relationship="Model.FK__Evidence__StaffI__3F3159AB" FromRole="Staff" ToRole="Evidence" />
+          <NavigationProperty Name="Resignation" Relationship="Model.FK__Resignati__Staff__65570293" FromRole="Staff" ToRole="Resignation" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="FoodId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="FoodId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="Self.FK__OrderDeta__FoodI__2DB1C7EE" FromRole="OrderDetail" ToRole="Food" />
+          <NavigationProperty Name="OrderHeader" Relationship="Self.FK__OrderDeta__Order__54CB950F" FromRole="OrderDetail" ToRole="OrderHeader" />
+        </EntityType>
+        <EntityType Name="RecipeDish">
+          <Key>
+            <PropertyRef Name="DishId" />
+            <PropertyRef Name="IngredientId" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Deleted" />
+          </Key>
+          <Property Name="DishId" Type="Int32" Nullable="false" />
+          <Property Name="IngredientId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK__RecipeDis__DishI__0FEC5ADD" FromRole="RecipeDish" ToRole="Dishes" />
+          <NavigationProperty Name="Ingredient" Relationship="Self.FK__RecipeDis__Ingre__10E07F16" FromRole="RecipeDish" ToRole="Ingredient" />
+        </EntityType>
+        <EntityType Name="RecipeFood">
+          <Key>
+            <PropertyRef Name="FoodId" />
+            <PropertyRef Name="IngredientId" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Deleted" />
+          </Key>
+          <Property Name="FoodId" Type="Int32" Nullable="false" />
+          <Property Name="IngredientId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Food" Relationship="Self.FK__RecipeFoo__FoodI__0D0FEE32" FromRole="RecipeFood" ToRole="Food" />
+          <NavigationProperty Name="Ingredient" Relationship="Self.FK__RecipeFoo__Ingre__0E04126B" FromRole="RecipeFood" ToRole="Ingredient" />
+        </EntityType>
+        <Association Name="FK__BrunchTic__Guest__24E777C3">
+          <End Role="Guest" Type="Self.Guest" Multiplicity="1" />
+          <End Role="BrunchTicket" Type="Self.BrunchTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Guest">
+              <PropertyRef Name="GuestId" />
+            </Principal>
+            <Dependent Role="BrunchTicket">
+              <PropertyRef Name="GuestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DishesReq__DishI__3C34F16F">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="DishesRequest" Type="Self.DishesRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="DishId" />
+            </Principal>
+            <Dependent Role="DishesRequest">
+              <PropertyRef Name="DishId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RecipeDis__DishI__0FEC5ADD">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="RecipeDish" Type="Self.RecipeDish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="DishId" />
+            </Principal>
+            <Dependent Role="RecipeDish">
+              <PropertyRef Name="DishId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__FoodI__2DB1C7EE">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="FoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RecipeFoo__FoodI__0D0FEE32">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="RecipeFood" Type="Self.RecipeFood" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodId" />
+            </Principal>
+            <Dependent Role="RecipeFood">
+              <PropertyRef Name="FoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Guest__Reservati__23F3538A">
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservation">
+              <PropertyRef Name="ReservationId" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="ReservationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Guest__RoomId__25DB9BFC">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RecipeDis__Ingre__10E07F16">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+          <End Role="RecipeDish" Type="Self.RecipeDish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="RecipeDish">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RecipeFoo__Ingre__0E04126B">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="1" />
+          <End Role="RecipeFood" Type="Self.RecipeFood" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="IngredientId" />
+            </Principal>
+            <Dependent Role="RecipeFood">
+              <PropertyRef Name="IngredientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__Order__54CB950F">
+          <End Role="OrderHeader" Type="Self.OrderHeader" Multiplicity="1" />
+          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderHeader">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PurchaseR__ItemI__473C8FC7">
+          <End Role="PurchaseRequest" Type="Self.PurchaseRequest" Multiplicity="1" />
+          <End Role="PurchaseRequestReason" Type="Self.PurchaseRequestReason" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseRequest">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="PurchaseRequestReason">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Patrick_Hotel_DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BrunchTicket" EntityType="Self.BrunchTicket" />
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" />
+          <EntitySet Name="DishesRequest" EntityType="Self.DishesRequest" />
+          <EntitySet Name="Food" EntityType="Self.Food" />
+          <EntitySet Name="FundRequest" EntityType="Self.FundRequest" />
+          <EntitySet Name="Guest" EntityType="Self.Guest" />
+          <EntitySet Name="Ingredient" EntityType="Self.Ingredient" />
+          <EntitySet Name="MinibarItems" EntityType="Self.MinibarItems" />
+          <EntitySet Name="OrderHeader" EntityType="Self.OrderHeader" />
+          <EntitySet Name="PaymentDetail" EntityType="Self.PaymentDetail" />
+          <EntitySet Name="PurchaseRequest" EntityType="Self.PurchaseRequest" />
+          <EntitySet Name="PurchaseRequestReason" EntityType="Self.PurchaseRequestReason" />
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" />
+          <EntitySet Name="Room" EntityType="Self.Room" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" />
+          <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" />
+          <EntitySet Name="RecipeDish" EntityType="Self.RecipeDish" />
+          <EntitySet Name="RecipeFood" EntityType="Self.RecipeFood" />
+          <AssociationSet Name="FK__BrunchTic__Guest__24E777C3" Association="Self.FK__BrunchTic__Guest__24E777C3">
+            <End Role="Guest" EntitySet="Guest" />
+            <End Role="BrunchTicket" EntitySet="BrunchTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DishesReq__DishI__3C34F16F" Association="Self.FK__DishesReq__DishI__3C34F16F">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="DishesRequest" EntitySet="DishesRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RecipeDis__DishI__0FEC5ADD" Association="Self.FK__RecipeDis__DishI__0FEC5ADD">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="RecipeDish" EntitySet="RecipeDish" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__FoodI__2DB1C7EE" Association="Self.FK__OrderDeta__FoodI__2DB1C7EE">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RecipeFoo__FoodI__0D0FEE32" Association="Self.FK__RecipeFoo__FoodI__0D0FEE32">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="RecipeFood" EntitySet="RecipeFood" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Guest__Reservati__23F3538A" Association="Self.FK__Guest__Reservati__23F3538A">
+            <End Role="Reservation" EntitySet="Reservation" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Guest__RoomId__25DB9BFC" Association="Self.FK__Guest__RoomId__25DB9BFC">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RecipeDis__Ingre__10E07F16" Association="Self.FK__RecipeDis__Ingre__10E07F16">
+            <End Role="Ingredient" EntitySet="Ingredient" />
+            <End Role="RecipeDish" EntitySet="RecipeDish" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RecipeFoo__Ingre__0E04126B" Association="Self.FK__RecipeFoo__Ingre__0E04126B">
+            <End Role="Ingredient" EntitySet="Ingredient" />
+            <End Role="RecipeFood" EntitySet="RecipeFood" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Order__54CB950F" Association="Self.FK__OrderDeta__Order__54CB950F">
+            <End Role="OrderHeader" EntitySet="OrderHeader" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PurchaseR__ItemI__473C8FC7" Association="Self.FK__PurchaseR__ItemI__473C8FC7">
+            <End Role="PurchaseRequest" EntitySet="PurchaseRequest" />
+            <End Role="PurchaseRequestReason" EntitySet="PurchaseRequestReason" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PaymentDe__Guest__269AB60B" Association="Model.FK__PaymentDe__Guest__269AB60B">
+            <End Role="Guest" EntitySet="Guest" />
+            <End Role="PaymentDetail" EntitySet="PaymentDetail" />
+          </AssociationSet>
+          <EntitySet Name="RaiseRequest" EntityType="Model.RaiseRequest" />
+          <AssociationSet Name="FK__RaiseRequ__Staff__2C1E8537" Association="Model.FK__RaiseRequ__Staff__2C1E8537">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="RaiseRequest" EntitySet="RaiseRequest" />
+          </AssociationSet>
+          <EntitySet Name="Evidence" EntityType="Model.Evidence" />
+          <AssociationSet Name="FK__Evidence__StaffI__3F3159AB" Association="Model.FK__Evidence__StaffI__3F3159AB">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Evidence" EntitySet="Evidence" />
+          </AssociationSet>
+          <EntitySet Name="Candidate" EntityType="Model.Candidate" />
+          <EntitySet Name="Resignation" EntityType="Model.Resignation" />
+          <AssociationSet Name="FK__Resignati__Staff__65570293" Association="Model.FK__Resignati__Staff__65570293">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Resignation" EntitySet="Resignation" />
+          </AssociationSet>
+          <EntitySet Name="GuestReviewReport" EntityType="Model.GuestReviewReport" />
+          <EntitySet Name="PurchaseReport" EntityType="Model.PurchaseReport" />
+          <EntitySet Name="SalesReport" EntityType="Model.SalesReport" />
+          <AssociationSet Name="FK__GuestRevi__Guest__7A521F79" Association="Model.FK__GuestRevi__Guest__7A521F79">
+            <End Role="Guest" EntitySet="Guest" />
+            <End Role="GuestReviewReport" EntitySet="GuestReviewReport" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK__PaymentDe__Guest__269AB60B">
+          <End Type="Model.Guest" Role="Guest" Multiplicity="1" />
+          <End Type="Model.PaymentDetail" Role="PaymentDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Guest">
+              <PropertyRef Name="GuestId" />
+            </Principal>
+            <Dependent Role="PaymentDetail">
+              <PropertyRef Name="GuestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RaiseRequest">
+          <Key>
+            <PropertyRef Name="RaiseId" />
+          </Key>
+          <Property Name="RaiseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
+          <Property Name="RaiseTotal" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Staff" Relationship="Model.FK__RaiseRequ__Staff__2C1E8537" FromRole="RaiseRequest" ToRole="Staff" />
+        </EntityType>
+        <Association Name="FK__RaiseRequ__Staff__2C1E8537">
+          <End Type="Model.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="Model.RaiseRequest" Role="RaiseRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="RaiseRequest">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Evidence">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Staff" Relationship="Model.FK__Evidence__StaffI__3F3159AB" FromRole="Evidence" ToRole="Staff" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="EvidenceText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Evidence__StaffI__3F3159AB">
+          <End Type="Model.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="Model.Evidence" Role="Evidence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="Evidence">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Candidate">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+          </Key>
+          <Property Name="CandidateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CandidateName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CandidateStep" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resignation">
+          <Key>
+            <PropertyRef Name="RegignationId" />
+          </Key>
+          <Property Name="RegignationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Staff" Relationship="Model.FK__Resignati__Staff__65570293" FromRole="Resignation" ToRole="Staff" />
+        </EntityType>
+        <Association Name="FK__Resignati__Staff__65570293">
+          <End Type="Model.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="Model.Resignation" Role="Resignation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="StaffId" />
+            </Principal>
+            <Dependent Role="Resignation">
+              <PropertyRef Name="StaffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="GuestReviewReport">
+          <Key>
+            <PropertyRef Name="GuestReviewId" />
+          </Key>
+          <Property Name="GuestReviewId" Type="Int32" Nullable="false" />
+          <Property Name="GuestId" Type="Int32" Nullable="false" />
+          <Property Name="GuestReview" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Guest" Relationship="Model.FK__GuestRevi__Guest__7A521F79" FromRole="GuestReviewReport" ToRole="Guest" />
+        </EntityType>
+        <EntityType Name="PurchaseReport">
+          <Key>
+            <PropertyRef Name="PusrchaseReportId" />
+          </Key>
+          <Property Name="PusrchaseReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseTotal" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+          <Property Name="PurchaseItem" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SalesReport">
+          <Key>
+            <PropertyRef Name="SalesReportId" />
+          </Key>
+          <Property Name="SalesReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TotalPayment" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__GuestRevi__Guest__7A521F79">
+          <End Type="Model.Guest" Role="Guest" Multiplicity="1" />
+          <End Type="Model.GuestReviewReport" Role="GuestReviewReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Guest">
+              <PropertyRef Name="GuestId" />
+            </Principal>
+            <Dependent Role="GuestReviewReport">
+              <PropertyRef Name="GuestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Patrick_Hotel_DatabaseEntities">
+          <EntitySetMapping Name="BrunchTicket">
+            <EntityTypeMapping TypeName="Model.BrunchTicket">
+              <MappingFragment StoreEntitySet="BrunchTicket">
+                <ScalarProperty Name="TicketId" ColumnName="TicketId" />
+                <ScalarProperty Name="GuestId" ColumnName="GuestId" />
+                <ScalarProperty Name="BrunchRemaining" ColumnName="BrunchRemaining" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dishes">
+            <EntityTypeMapping TypeName="Model.Dishes">
+              <MappingFragment StoreEntitySet="Dishes">
+                <ScalarProperty Name="DishId" ColumnName="DishId" />
+                <ScalarProperty Name="DishName" ColumnName="DishName" />
+                <ScalarProperty Name="DishStock" ColumnName="DishStock" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DishesRequest">
+            <EntityTypeMapping TypeName="Model.DishesRequest">
+              <MappingFragment StoreEntitySet="DishesRequest">
+                <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+                <ScalarProperty Name="DishId" ColumnName="DishId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Food">
+            <EntityTypeMapping TypeName="Model.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="FoodPrice" ColumnName="FoodPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FundRequest">
+            <EntityTypeMapping TypeName="Model.FundRequest">
+              <MappingFragment StoreEntitySet="FundRequest">
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="FundId" ColumnName="FundId" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Guest">
+            <EntityTypeMapping TypeName="Model.Guest">
+              <MappingFragment StoreEntitySet="Guest">
+                <ScalarProperty Name="GuestId" ColumnName="GuestId" />
+                <ScalarProperty Name="GuestName" ColumnName="GuestName" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="ReservationId" ColumnName="ReservationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredient">
+            <EntityTypeMapping TypeName="Model.Ingredient">
+              <MappingFragment StoreEntitySet="Ingredient">
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+                <ScalarProperty Name="IngredientName" ColumnName="IngredientName" />
+                <ScalarProperty Name="IngredientStock" ColumnName="IngredientStock" />
+                <ScalarProperty Name="IngredientMinimumStock" ColumnName="IngredientMinimumStock" />
+                <ScalarProperty Name="IngredientPrice" ColumnName="IngredientPrice" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MinibarItems">
+            <EntityTypeMapping TypeName="Model.MinibarItems">
+              <MappingFragment StoreEntitySet="MinibarItems">
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemStock" ColumnName="ItemStock" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="ItemMinimumStock" ColumnName="ItemMinimumStock" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderHeader">
+            <EntityTypeMapping TypeName="Model.OrderHeader">
+              <MappingFragment StoreEntitySet="OrderHeader">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="OrderPriority" ColumnName="OrderPriority" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentDetail">
+            <EntityTypeMapping TypeName="Model.PaymentDetail">
+              <MappingFragment StoreEntitySet="PaymentDetail">
+                <ScalarProperty Name="GuestId" ColumnName="GuestId" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+                <ScalarProperty Name="PaymentTotal" ColumnName="PaymentTotal" />
+                <ScalarProperty Name="DepositMoney" ColumnName="DepositMoney" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseRequest">
+            <EntityTypeMapping TypeName="Model.PurchaseRequest">
+              <MappingFragment StoreEntitySet="PurchaseRequest">
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="ItemQuantity" ColumnName="ItemQuantity" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseRequestReason">
+            <EntityTypeMapping TypeName="Model.PurchaseRequestReason">
+              <MappingFragment StoreEntitySet="PurchaseRequestReason">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservation">
+            <EntityTypeMapping TypeName="Model.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="ReservationId" ColumnName="ReservationId" />
+                <ScalarProperty Name="CheckInDate" ColumnName="CheckInDate" />
+                <ScalarProperty Name="Nights" ColumnName="Nights" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="GuestName" ColumnName="GuestName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Room">
+            <EntityTypeMapping TypeName="Model.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="MakeUp" ColumnName="MakeUp" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staff">
+            <EntityTypeMapping TypeName="Model.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="StaffPassword" ColumnName="StaffPassword" />
+                <ScalarProperty Name="StaffSalary" ColumnName="StaffSalary" />
+                <ScalarProperty Name="StaffPosition" ColumnName="StaffPosition" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetail">
+            <EntityTypeMapping TypeName="Model.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeDish">
+            <EntityTypeMapping TypeName="Model.RecipeDish">
+              <MappingFragment StoreEntitySet="RecipeDish">
+                <ScalarProperty Name="DishId" ColumnName="DishId" />
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecipeFood">
+            <EntityTypeMapping TypeName="Model.RecipeFood">
+              <MappingFragment StoreEntitySet="RecipeFood">
+                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
+                <ScalarProperty Name="IngredientId" ColumnName="IngredientId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RaiseRequest">
+            <EntityTypeMapping TypeName="Model.RaiseRequest">
+              <MappingFragment StoreEntitySet="RaiseRequest">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="RaiseTotal" ColumnName="RaiseTotal" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="RaiseId" ColumnName="RaiseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evidence">
+            <EntityTypeMapping TypeName="Model.Evidence">
+              <MappingFragment StoreEntitySet="Evidence">
+                <ScalarProperty Name="EvidenceText" ColumnName="EvidenceText" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Candidate">
+            <EntityTypeMapping TypeName="Model.Candidate">
+              <MappingFragment StoreEntitySet="Candidate">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CandidateStep" ColumnName="CandidateStep" />
+                <ScalarProperty Name="CandidateName" ColumnName="CandidateName" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resignation">
+            <EntityTypeMapping TypeName="Model.Resignation">
+              <MappingFragment StoreEntitySet="Resignation">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="RegignationId" ColumnName="RegignationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GuestReviewReport">
+            <EntityTypeMapping TypeName="Model.GuestReviewReport">
+              <MappingFragment StoreEntitySet="GuestReviewReport">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="GuestReview" ColumnName="GuestReview" />
+                <ScalarProperty Name="GuestId" ColumnName="GuestId" />
+                <ScalarProperty Name="GuestReviewId" ColumnName="GuestReviewId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseReport">
+            <EntityTypeMapping TypeName="Model.PurchaseReport">
+              <MappingFragment StoreEntitySet="PurchaseReport">
+                <ScalarProperty Name="PurchaseItem" ColumnName="PurchaseItem" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="PurchaseTotal" ColumnName="PurchaseTotal" />
+                <ScalarProperty Name="PusrchaseReportId" ColumnName="PusrchaseReportId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesReport">
+            <EntityTypeMapping TypeName="Model.SalesReport">
+              <MappingFragment StoreEntitySet="SalesReport">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="TotalPayment" ColumnName="TotalPayment" />
+                <ScalarProperty Name="SalesReportId" ColumnName="SalesReportId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

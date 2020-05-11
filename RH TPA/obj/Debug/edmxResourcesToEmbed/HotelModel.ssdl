@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Dishes">
+    <Key>
+      <PropertyRef Name="DishId" />
+    </Key>
+    <Property Name="DishId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DishName" Type="varchar(max)" Nullable="false" />
+    <Property Name="DishStock" Type="int" Nullable="false" />
+    <Property Name="Deleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="FoodId" />
+    </Key>
+    <Property Name="FoodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FoodName" Type="varchar(max)" Nullable="false" />
+    <Property Name="FoodAvailable" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FundRequest">
+    <Key>
+      <PropertyRef Name="FundId" />
+    </Key>
+    <Property Name="FundId" Type="int" Nullable="false" />
+    <Property Name="FundTotal" Type="int" Nullable="false" />
+    <Property Name="FundDescription" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Guest">
+    <Key>
+      <PropertyRef Name="GuestId" />
+    </Key>
+    <Property Name="GuestId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuestName" Type="varchar(max)" Nullable="false" />
+    <Property Name="DocumentId" Type="varchar(max)" Nullable="false" />
+    <Property Name="RoomNumber" Type="varchar(max)" Nullable="false" />
+    <Property Name="Check-In" Type="varchar(max)" Nullable="false" />
+    <Property Name="Check-Out" Type="varchar(max)" Nullable="false" />
+    <Property Name="BrunchRemaining" Type="int" Nullable="false" />
+    <Property Name="Deleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="IngredientId" />
+    </Key>
+    <Property Name="IngredientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IngredientName" Type="varchar(max)" Nullable="false" />
+    <Property Name="IngredientStock" Type="varchar(max)" Nullable="false" />
+    <Property Name="Deleted" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MinibarItems">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemName" Type="varchar(max)" Nullable="false" />
+    <Property Name="ItemStock" Type="int" Nullable="false" />
+    <Property Name="Deleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailId" />
+    </Key>
+    <Property Name="OrderDetailId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="FoodId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderHeader">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderPriority" Type="varchar(max)" Nullable="false" />
+    <Property Name="RoomNumber" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="ReservationId" />
+    </Key>
+    <Property Name="ReservationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuestId" Type="int" Nullable="false" />
+    <Property Name="Deleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StaffName" Type="varchar(max)" Nullable="false" />
+    <Property Name="StaffPassword" Type="varchar(max)" Nullable="false" />
+    <Property Name="StaffSalary" Type="int" Nullable="false" />
+    <Property Name="StaffPosition" Type="varchar(max)" Nullable="false" />
+    <Property Name="Deleted" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__OrderDeta__FoodI__3B75D760">
+    <End Role="Food" Type="Self.Food" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="FoodId" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="FoodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDeta__Order__3A81B327">
+    <End Role="OrderHeader" Type="Self.OrderHeader" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderHeader">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reservati__Guest__31EC6D26">
+    <End Role="Guest" Type="Self.Guest" Multiplicity="1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guest">
+        <PropertyRef Name="GuestId" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="GuestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FundRequest" EntityType="Self.FundRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Guest" EntityType="Self.Guest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MinibarItems" EntityType="Self.MinibarItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderHeader" EntityType="Self.OrderHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__OrderDeta__FoodI__3B75D760" Association="Self.FK__OrderDeta__FoodI__3B75D760">
+      <End Role="Food" EntitySet="Food" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDeta__Order__3A81B327" Association="Self.FK__OrderDeta__Order__3A81B327">
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reservati__Guest__31EC6D26" Association="Self.FK__Reservati__Guest__31EC6D26">
+      <End Role="Guest" EntitySet="Guest" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

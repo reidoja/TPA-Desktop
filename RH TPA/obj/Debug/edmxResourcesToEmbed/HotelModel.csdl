@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Dishes">
+    <Key>
+      <PropertyRef Name="DishId" />
+    </Key>
+    <Property Name="DishId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DishStock" Type="Int32" Nullable="false" />
+    <Property Name="Deleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="FoodId" />
+    </Key>
+    <Property Name="FoodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FoodName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FoodAvailable" Type="Int32" Nullable="false" />
+    <Property Name="Deleted" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OrderDetail" Relationship="Self.FK__OrderDeta__FoodI__3B75D760" FromRole="Food" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="FundRequest">
+    <Key>
+      <PropertyRef Name="FundId" />
+    </Key>
+    <Property Name="FundId" Type="Int32" Nullable="false" />
+    <Property Name="FundTotal" Type="Int32" Nullable="false" />
+    <Property Name="FundDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Guest">
+    <Key>
+      <PropertyRef Name="GuestId" />
+    </Key>
+    <Property Name="GuestId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuestName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DocumentId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RoomNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Check_In" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Check_Out" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BrunchRemaining" Type="Int32" Nullable="false" />
+    <Property Name="Deleted" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Reservation" Relationship="Self.FK__Reservati__Guest__31EC6D26" FromRole="Guest" ToRole="Reservation" />
+  </EntityType>
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="IngredientId" />
+    </Key>
+    <Property Name="IngredientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IngredientName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IngredientStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Deleted" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MinibarItems">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ItemStock" Type="Int32" Nullable="false" />
+    <Property Name="Deleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailId" />
+    </Key>
+    <Property Name="OrderDetailId" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="FoodId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Food" Relationship="Self.FK__OrderDeta__FoodI__3B75D760" FromRole="OrderDetail" ToRole="Food" />
+    <NavigationProperty Name="OrderHeader" Relationship="Self.FK__OrderDeta__Order__3A81B327" FromRole="OrderDetail" ToRole="OrderHeader" />
+  </EntityType>
+  <EntityType Name="OrderHeader">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderPriority" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RoomNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="OrderDetail" Relationship="Self.FK__OrderDeta__Order__3A81B327" FromRole="OrderHeader" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="ReservationId" />
+    </Key>
+    <Property Name="ReservationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuestId" Type="Int32" Nullable="false" />
+    <Property Name="Deleted" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Guest" Relationship="Self.FK__Reservati__Guest__31EC6D26" FromRole="Reservation" ToRole="Guest" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StaffPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StaffSalary" Type="Int32" Nullable="false" />
+    <Property Name="StaffPosition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Deleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__OrderDeta__FoodI__3B75D760">
+    <End Role="Food" Type="Self.Food" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="FoodId" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="FoodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reservati__Guest__31EC6D26">
+    <End Role="Guest" Type="Self.Guest" Multiplicity="1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guest">
+        <PropertyRef Name="GuestId" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="GuestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDeta__Order__3A81B327">
+    <End Role="OrderHeader" Type="Self.OrderHeader" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderHeader">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Patrick_Hotel_DatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Dishes" EntityType="Self.Dishes" />
+    <EntitySet Name="Food" EntityType="Self.Food" />
+    <EntitySet Name="FundRequest" EntityType="Self.FundRequest" />
+    <EntitySet Name="Guest" EntityType="Self.Guest" />
+    <EntitySet Name="Ingredient" EntityType="Self.Ingredient" />
+    <EntitySet Name="MinibarItems" EntityType="Self.MinibarItems" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" />
+    <EntitySet Name="OrderHeader" EntityType="Self.OrderHeader" />
+    <EntitySet Name="Reservation" EntityType="Self.Reservation" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" />
+    <AssociationSet Name="FK__OrderDeta__FoodI__3B75D760" Association="Self.FK__OrderDeta__FoodI__3B75D760">
+      <End Role="Food" EntitySet="Food" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reservati__Guest__31EC6D26" Association="Self.FK__Reservati__Guest__31EC6D26">
+      <End Role="Guest" EntitySet="Guest" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDeta__Order__3A81B327" Association="Self.FK__OrderDeta__Order__3A81B327">
+      <End Role="OrderHeader" EntitySet="OrderHeader" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
